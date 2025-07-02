@@ -299,14 +299,14 @@ Rails.application.routes.draw do
                 post :test
               end
             end
-            
+
             # HelpForce Smart Routing
             scope :helpforce_routing, controller: 'helpforce_routing' do
               get :analytics
               get :needs_attention
               get :agent_workload
               post :bulk_route
-              
+
               # Conversation-specific routing
               get 'conversations/:conversation_id', action: :show, as: :helpforce_routing_conversation
               post 'conversations/:conversation_id/route', action: :route
@@ -604,4 +604,11 @@ Rails.application.routes.draw do
   # ----------------------------------------------------------------------
   # Routes for testing
   resources :widget_tests, only: [:index] unless Rails.env.production?
+
+  # ----------------------------------------------------------------------
+  # Enterprise Routes
+  if WorqChatApp.enterprise?
+    enterprise_routes_path = Rails.root.join('enterprise/config/routes.rb')
+    instance_eval(File.read(enterprise_routes_path)) if File.exist?(enterprise_routes_path)
+  end
 end
