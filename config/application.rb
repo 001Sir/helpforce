@@ -36,7 +36,7 @@ end
 # Enable enterprise features with careful error handling
 # This must be defined BEFORE Module.prepend is called in initializers
 if ENV['ENABLE_ENTERPRISE_SAFELY'] == 'true'
-  require 'inject_enterprise_edition'
+  require_relative '../lib/inject_enterprise_edition'
 
   class Module
     alias original_prepend_mod_with prepend_mod_with if method_defined?(:prepend_mod_with)
