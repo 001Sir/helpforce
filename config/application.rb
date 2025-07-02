@@ -33,24 +33,45 @@ if ENV.fetch('JUDOSCALE_URL', false).present?
   require 'judoscale-sidekiq'
 end
 
-# Disable enterprise features for Heroku deployment
+# Enable enterprise features with careful error handling
 # This must be defined BEFORE Module.prepend is called in initializers
-# So we'll patch it directly in the Module class early
-if ENV['DISABLE_ENTERPRISE'] == 'true' || ENV['RAILS_ENV'] == 'production'
+if ENV['ENABLE_ENTERPRISE_SAFELY'] == 'true'
+  require 'inject_enterprise_edition'
+
   class Module
+    alias original_prepend_mod_with prepend_mod_with if method_defined?(:prepend_mod_with)
+
     def prepend_mod_with(constant_name, namespace: Object, with_descendants: false)
-      # Skip all enterprise module loading
-      Rails.logger.info "Skipping enterprise module: #{constant_name}" if Rails.logger
-      return
+      original_prepend_mod_with(constant_name, namespace: namespace, with_descendants: with_descendants)
+    rescue NameError => e
+      Rails.logger.warn "Enterprise module not found: #{constant_name} - #{e.message}" if Rails.logger
     end
 
     def extend_mod_with(constant_name, namespace: Object)
-      Rails.logger.info "Skipping enterprise module extend: #{constant_name}" if Rails.logger
-      return
+      super
+    rescue NameError => e
+      Rails.logger.warn "Enterprise module extend not found: #{constant_name} - #{e.message}" if Rails.logger
     end
 
     def include_mod_with(constant_name, namespace: Object)
-      Rails.logger.info "Skipping enterprise module include: #{constant_name}" if Rails.logger
+      super
+    rescue NameError => e
+      Rails.logger.warn "Enterprise module include not found: #{constant_name} - #{e.message}" if Rails.logger
+    end
+  end
+else
+  # Keep enterprise disabled by default until we're sure it works
+  class Module
+    def prepend_mod_with(_constant_name, namespace: Object, with_descendants: false)
+      Rails.logger.info 'Enterprise features disabled' if Rails.logger
+      return
+    end
+
+    def extend_mod_with(_constant_name, namespace: Object)
+      return
+    end
+
+    def include_mod_with(_constant_name, namespace: Object)
       return
     end
   end
