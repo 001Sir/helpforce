@@ -1,3 +1,3 @@
-release: bundle exec rails db:create db:schema:load db:migrate || bundle exec rails db:migrate
+release: echo "Skipping database setup for now"
 web: bundle exec rails ip_lookup:setup && bin/rails server -p $PORT -e $RAILS_ENV
 worker: bundle exec rails ip_lookup:setup && bundle exec sidekiq -C config/sidekiq.yml
