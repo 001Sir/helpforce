@@ -7,8 +7,8 @@ import {
   ArticleMarkdownTransformer,
   EditorState,
   Selection,
-} from '@chatwoot/prosemirror-schema';
-import imagePastePlugin from '@chatwoot/prosemirror-schema/src/plugins/image';
+} from '@worqchat/prosemirror-schema';
+import imagePastePlugin from '@worqchat/prosemirror-schema/src/plugins/image';
 import { checkFileSizeLimit } from 'shared/helpers/FileHelper';
 import { useAlert } from 'dashboard/composables';
 import { useUISettings } from 'dashboard/composables/useUISettings';
@@ -304,7 +304,7 @@ export default {
 </template>
 
 <style lang="scss">
-@import '@chatwoot/prosemirror-schema/src/styles/article.scss';
+@import '@worqchat/prosemirror-schema/src/styles/article.scss';
 
 .ProseMirror-menubar-wrapper {
   display: flex;

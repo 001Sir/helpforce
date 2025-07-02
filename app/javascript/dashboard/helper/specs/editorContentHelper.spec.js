@@ -4,15 +4,15 @@ import { getContentNode } from '../editorHelper';
 import {
   MessageMarkdownTransformer,
   messageSchema,
-} from '@chatwoot/prosemirror-schema';
-import { replaceVariablesInMessage } from '@chatwoot/utils';
+} from '@worqchat/prosemirror-schema';
+import { replaceVariablesInMessage } from '@worqchat/utils';
 
-vi.mock('@chatwoot/prosemirror-schema', () => ({
+vi.mock('@worqchat/prosemirror-schema', () => ({
   MessageMarkdownTransformer: vi.fn(),
   messageSchema: {},
 }));
 
-vi.mock('@chatwoot/utils', () => ({
+vi.mock('@worqchat/utils', () => ({
   replaceVariablesInMessage: vi.fn(),
 }));
 

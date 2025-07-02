@@ -1,6 +1,6 @@
 <script setup>
 import { ref, useTemplateRef, onMounted, onUnmounted } from 'vue';
-import { debounce } from '@chatwoot/utils';
+import { debounce } from '@worqchat/utils';
 
 const emit = defineEmits(['search']);
 

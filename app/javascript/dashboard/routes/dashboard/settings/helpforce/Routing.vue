@@ -497,9 +497,8 @@ size="small"
             </h3>
             <div class="space-y-2">
               <div
-v-for="conv in conversationsNeedingAttention.low_confidence.slice(0, 5)" 
+                v-for="conv in conversationsNeedingAttention.low_confidence.slice(0, 5)" 
                 :key="conv.id"
-                )"
                 class="flex items-center justify-between p-4 border border-slate-200 rounded-lg"
               >
                 <div>

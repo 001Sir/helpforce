@@ -38,11 +38,11 @@ import {
   MessageMarkdownSerializer,
   EditorState,
   Selection,
-} from '@chatwoot/prosemirror-schema';
+} from '@worqchat/prosemirror-schema';
 import {
   suggestionsPlugin,
   triggerCharacters,
-} from '@chatwoot/prosemirror-schema/src/mentions/plugin';
+} from '@worqchat/prosemirror-schema/src/mentions/plugin';
 
 import {
   appendSignature,
@@ -57,7 +57,7 @@ import {
   hasPressedEnterAndNotCmdOrShift,
   hasPressedCommandAndEnter,
 } from 'shared/helpers/KeyboardHelpers';
-import { createTypingIndicator } from '@chatwoot/utils';
+import { createTypingIndicator } from '@worqchat/utils';
 import { checkFileSizeLimit } from 'shared/helpers/FileHelper';
 import { uploadFile } from 'dashboard/helper/uploadHelper';
 
@@ -729,7 +729,7 @@ useEmitter(BUS_EVENTS.INSERT_INTO_RICH_EDITOR, insertContentIntoEditor);
 </template>
 
 <style lang="scss">
-@import '@chatwoot/prosemirror-schema/src/styles/base.scss';
+@import '@worqchat/prosemirror-schema/src/styles/base.scss';
 
 .ProseMirror-menubar-wrapper {
   @apply flex flex-col;

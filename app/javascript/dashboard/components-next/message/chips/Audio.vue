@@ -2,7 +2,7 @@
 import { computed, onMounted, useTemplateRef, ref } from 'vue';
 import Icon from 'next/icon/Icon.vue';
 import { timeStampAppendedURL } from 'dashboard/helper/URLHelper';
-import { downloadFile } from '@chatwoot/utils';
+import { downloadFile } from '@worqchat/utils';
 
 const { attachment } = defineProps({
   attachment: {

@@ -2,7 +2,7 @@
 import { computed } from 'vue';
 import { useUISettings } from 'dashboard/composables/useUISettings';
 import { useMapGetter } from 'dashboard/composables/store.js';
-import { formatNumber } from '@chatwoot/utils';
+import { formatNumber } from '@worqchat/utils';
 import wootConstants from 'dashboard/constants/globals';
 import { FEATURE_FLAGS } from 'dashboard/featureFlags';
 

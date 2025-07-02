@@ -1,6 +1,6 @@
 <script>
 import { mapGetters } from 'vuex';
-import { getContrastingTextColor } from '@chatwoot/utils';
+import { getContrastingTextColor } from '@worqchat/utils';
 import nextAvailabilityTime from 'widget/mixins/nextAvailabilityTime';
 import configMixin from 'widget/mixins/configMixin';
 import availabilityMixin from 'widget/mixins/availability';

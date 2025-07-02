@@ -2,8 +2,8 @@ import {
   messageSchema,
   MessageMarkdownTransformer,
   MessageMarkdownSerializer,
-} from '@chatwoot/prosemirror-schema';
-import { replaceVariablesInMessage } from '@chatwoot/utils';
+} from '@worqchat/prosemirror-schema';
+import { replaceVariablesInMessage } from '@worqchat/utils';
 import * as Sentry from '@sentry/vue';
 
 /**

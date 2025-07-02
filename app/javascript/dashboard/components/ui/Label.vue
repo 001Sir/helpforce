@@ -1,5 +1,5 @@
 <script>
-import { getContrastingTextColor } from '@chatwoot/utils';
+import { getContrastingTextColor } from '@worqchat/utils';
 
 export default {
   props: {
