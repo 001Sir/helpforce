@@ -60,8 +60,8 @@ Rails.application.routes.draw do
             end
             resources :assistant_responses
             resources :bulk_actions, only: [:create]
-            resources :copilot_threads, only: [:index, :create] do
-              resources :copilot_messages, only: [:index, :create]
+            resources :copilot_threads, only: [:index, :create], path: 'copilot/threads' do
+              resources :copilot_messages, only: [:index, :create], path: 'messages'
             end
             resources :documents, only: [:index, :show, :create, :destroy]
           end
@@ -607,8 +607,6 @@ Rails.application.routes.draw do
 
   # ----------------------------------------------------------------------
   # Enterprise Routes
-  if WorqChatApp.enterprise?
-    enterprise_routes_path = Rails.root.join('enterprise/config/routes.rb')
-    instance_eval(File.read(enterprise_routes_path)) if File.exist?(enterprise_routes_path)
-  end
+  # Enterprise features now integrated directly into main app
+  # No longer using external enterprise injection system
 end

@@ -1,0 +1,33 @@
+# Enterprise Features Configuration
+ENABLE_ENTERPRISE_SAFELY: true
+
+# Core Application URLs
+FRONTEND_URL: https://worqchat.com
+BRAND_URL: https://worqchat.com
+WIDGET_BRAND_URL: https://worqchat.com
+
+# Email Configuration
+MAILER_SENDER_EMAIL: noreply@worqchat.com
+MAILER_SUPPORT_EMAIL: support@worqchat.com
+
+# Legal URLs
+TERMS_URL: https://worqchat.com/terms-of-service
+PRIVACY_URL: https://worqchat.com/privacy-policy
+
+# Database Configuration (Heroku provides DATABASE_URL automatically)
+# DATABASE_URL: postgresql://user:pass@host:port/database
+
+# Redis Configuration (Heroku provides REDIS_URL automatically)
+# REDIS_URL: redis://localhost:6379
+
+# AWS S3 Configuration (for file uploads)
+# S3_BUCKET_NAME: your-bucket-name
+# AWS_ACCESS_KEY_ID: your-access-key
+# AWS_SECRET_ACCESS_KEY: your-secret-key
+# AWS_REGION: us-east-1
+
+# Installation Configuration
+INSTALLATION_NAME: WorqChat
+
+# Captain AI Features (if using OpenAI)
+# OPENAI_API_KEY: your-openai-api-key

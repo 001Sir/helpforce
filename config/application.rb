@@ -33,49 +33,8 @@ if ENV.fetch('JUDOSCALE_URL', false).present?
   require 'judoscale-sidekiq'
 end
 
-# Enable enterprise features with careful error handling
-# This must be defined BEFORE Module.prepend is called in initializers
-if ENV['ENABLE_ENTERPRISE_SAFELY'] == 'true'
-  require_relative '../lib/inject_enterprise_edition'
-
-  class Module
-    alias original_prepend_mod_with prepend_mod_with if method_defined?(:prepend_mod_with)
-
-    def prepend_mod_with(constant_name, namespace: Object, with_descendants: false)
-      original_prepend_mod_with(constant_name, namespace: namespace, with_descendants: with_descendants)
-    rescue NameError => e
-      Rails.logger.warn "Enterprise module not found: #{constant_name} - #{e.message}" if Rails.logger
-    end
-
-    def extend_mod_with(constant_name, namespace: Object)
-      super
-    rescue NameError => e
-      Rails.logger.warn "Enterprise module extend not found: #{constant_name} - #{e.message}" if Rails.logger
-    end
-
-    def include_mod_with(constant_name, namespace: Object)
-      super
-    rescue NameError => e
-      Rails.logger.warn "Enterprise module include not found: #{constant_name} - #{e.message}" if Rails.logger
-    end
-  end
-else
-  # Keep enterprise disabled by default until we're sure it works
-  class Module
-    def prepend_mod_with(_constant_name, namespace: Object, with_descendants: false)
-      Rails.logger.info 'Enterprise features disabled' if Rails.logger
-      return
-    end
-
-    def extend_mod_with(_constant_name, namespace: Object)
-      return
-    end
-
-    def include_mod_with(_constant_name, namespace: Object)
-      return
-    end
-  end
-end
+# Load our clean enterprise configuration
+require_relative 'enterprise'
 
 module WorqChat
   class Application < Rails::Application
@@ -83,16 +42,8 @@ module WorqChat
     config.load_defaults 7.0
 
     config.eager_load_paths << Rails.root.join('lib')
-    # Load enterprise paths when enabled
-    if ENV['ENABLE_ENTERPRISE_SAFELY'] == 'true' || (ENV['DISABLE_ENTERPRISE'] != 'true' && !Rails.env.production?)
-      config.eager_load_paths << Rails.root.join('enterprise/lib')
-      config.eager_load_paths << Rails.root.join('enterprise/listeners')
-      # rubocop:disable Rails/FilePath
-      config.eager_load_paths += Dir["#{Rails.root}/enterprise/app/**"]
-      # rubocop:enable Rails/FilePath
-      # Add enterprise views to the view paths
-      config.paths['app/views'].unshift('enterprise/app/views')
-    end
+    # Enterprise features are now integrated directly into the main app
+    # No separate enterprise directory loading needed
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
