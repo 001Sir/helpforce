@@ -83,8 +83,8 @@ module WorqChat
     config.load_defaults 7.0
 
     config.eager_load_paths << Rails.root.join('lib')
-    # Skip enterprise paths in production
-    unless ENV['DISABLE_ENTERPRISE'] == 'true' || ENV['RAILS_ENV'] == 'production'
+    # Load enterprise paths when enabled
+    if ENV['ENABLE_ENTERPRISE_SAFELY'] == 'true' || (ENV['DISABLE_ENTERPRISE'] != 'true' && ENV['RAILS_ENV'] != 'production')
       config.eager_load_paths << Rails.root.join('enterprise/lib')
       config.eager_load_paths << Rails.root.join('enterprise/listeners')
       # rubocop:disable Rails/FilePath
