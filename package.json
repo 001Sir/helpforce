@@ -146,10 +146,6 @@
     "vite-plugin-ruby": "^5.0.0",
     "vitest": "3.0.5"
   },
-  "engines": {
-    "node": "23.x",
-    "pnpm": "10.x"
-  },
   "husky": {
     "hooks": {
       "pre-push": "sh bin/validate_push"
