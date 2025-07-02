@@ -1,3 +1,4 @@
+# Fix for Heroku deployment - force clean build
 class Dispatcher
   include Singleton
 
