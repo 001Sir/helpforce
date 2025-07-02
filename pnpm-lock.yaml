@@ -332,6 +332,9 @@ importers:
       tailwindcss:
         specifier: ^3.4.13
         version: 3.4.13
+      terser:
+        specifier: ^5.33.0
+        version: 5.33.0
       vite:
         specifier: 5.4.19
         version: 5.4.19(@types/node@22.7.0)(sass@1.79.3)(terser@5.33.0)
@@ -5856,7 +5859,6 @@ snapshots:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.8
       '@jridgewell/trace-mapping': 0.3.25
-    optional: true
 
   '@jridgewell/sourcemap-codec@1.5.0': {}
 
@@ -7073,7 +7075,7 @@ snapshots:
 
   acorn-walk@8.3.4:
     dependencies:
-      acorn: 8.12.1
+      acorn: 8.14.1
 
   acorn@8.10.0: {}
 
@@ -7081,8 +7083,7 @@ snapshots:
 
   acorn@8.14.0: {}
 
-  acorn@8.14.1:
-    optional: true
+  acorn@8.14.1: {}
 
   activestorage@5.2.8:
     dependencies:
@@ -7297,8 +7298,7 @@ snapshots:
       node-releases: 2.0.18
       update-browserslist-db: 1.1.0(browserslist@4.23.3)
 
-  buffer-from@1.1.2:
-    optional: true
+  buffer-from@1.1.2: {}
 
   bytes-iec@3.1.1: {}
 
@@ -7457,8 +7457,7 @@ snapshots:
 
   commander@11.0.0: {}
 
-  commander@2.20.3:
-    optional: true
+  commander@2.20.3: {}
 
   commander@4.1.1: {}
 
@@ -9961,10 +9960,8 @@ snapshots:
     dependencies:
       buffer-from: 1.1.2
       source-map: 0.6.1
-    optional: true
 
-  source-map@0.6.1:
-    optional: true
+  source-map@0.6.1: {}
 
   spark-md5@3.0.2: {}
 
@@ -10127,7 +10124,6 @@ snapshots:
       acorn: 8.14.1
       commander: 2.20.3
       source-map-support: 0.5.21
-    optional: true
 
   test-exclude@7.0.1:
     dependencies:

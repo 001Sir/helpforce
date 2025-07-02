@@ -47,13 +47,7 @@ export default defineConfig({
   build: {
     // Optimize for memory usage
     sourcemap: false,
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true
-      }
-    },
+    minify: 'esbuild', // Use esbuild instead of terser for now
     rollupOptions: {
       output: {
         // [NOTE] when not in library mode, no new keys will be addedd or overwritten
