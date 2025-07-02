@@ -39,9 +39,10 @@ export const FEATURE_FLAGS = {
 };
 
 export const PREMIUM_FEATURES = [
-  FEATURE_FLAGS.SLA,
-  FEATURE_FLAGS.CAPTAIN,
-  FEATURE_FLAGS.CUSTOM_ROLES,
-  FEATURE_FLAGS.AUDIT_LOGS,
-  FEATURE_FLAGS.HELP_CENTER,
+  // All features unlocked for HelpForce development
+  // FEATURE_FLAGS.SLA, // SLA is now free
+  // FEATURE_FLAGS.CAPTAIN, // Captain AI is now free
+  // FEATURE_FLAGS.CUSTOM_ROLES, // Custom Roles is now free
+  // FEATURE_FLAGS.AUDIT_LOGS, // Audit Logs is now free
+  // FEATURE_FLAGS.HELP_CENTER, // Help Center is now free
 ];

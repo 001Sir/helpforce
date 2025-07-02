@@ -1,9 +1,9 @@
 {
-  "name": "Chatwoot",
-  "description": "Chatwoot is a customer support tool for instant messaging channels",
-  "website": "https://www.chatwoot.com/",
-  "repository": "https://github.com/chatwoot/chatwoot",
-  "logo": "https://app.chatwoot.com/brand-assets/logo_thumbnail.svg",
+  "name": "WorqChat",
+  "description": "WorqChat is an AI-powered customer support and communication platform",
+  "website": "https://www.worqchat.com/",
+  "repository": "https://github.com/001Sir/helpforce",
+  "logo": "https://app.worqchat.com/brand-assets/logo_thumbnail.svg",
   "keywords": [
     "live chat",
     "customer support",
@@ -26,11 +26,11 @@
       "value": "production"
     },
     "FRONTEND_URL": {
-      "description": "Public root URL of the Chatwoot installation. This will be used in the emails.",
+      "description": "Public root URL of the WorqChat installation. This will be used in the emails.",
       "value": "https://CHANGE.herokuapp.com"
     },
     "INSTALLATION_ENV": {
-      "description": "Installation method used for Chatwoot.",
+      "description": "Installation method used for WorqChat.",
       "value": "heroku"
     },
     "REDIS_OPENSSL_VERIFY_MODE":{
@@ -67,6 +67,9 @@
       "url": "heroku/ruby"
     }
   ],
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
+  },
   "environments": {
     "test": {
       "scripts": {

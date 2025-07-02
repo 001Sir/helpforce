@@ -72,11 +72,11 @@ export const IFrameHelper = {
     iframe.id = 'chatwoot_live_chat_widget';
     iframe.style.visibility = 'hidden';
 
-    let holderClassName = `woot-widget-holder woot--hide woot-elements--${window.$chatwoot.position}`;
-    if (window.$chatwoot.hideMessageBubble) {
+    let holderClassName = `woot-widget-holder woot--hide woot-elements--${window.$worqchat.position}`;
+    if (window.$worqchat.hideMessageBubble) {
       holderClassName += ` woot-widget--without-bubble`;
     }
-    if (isFlatWidgetStyle(window.$chatwoot.widgetStyle)) {
+    if (isFlatWidgetStyle(window.$worqchat.widgetStyle)) {
       holderClassName += ` woot-widget-holder--flat`;
     }
 
@@ -140,7 +140,7 @@ export const IFrameHelper = {
   },
 
   setupAudioListeners: () => {
-    const { baseUrl = '' } = window.$chatwoot;
+    const { baseUrl = '' } = window.$worqchat;
     getAlertAudio(baseUrl, { type: 'widget', alertTone: 'ding' }).then(() =>
       initOnEvents.forEach(event => {
         document.removeEventListener(
@@ -154,17 +154,17 @@ export const IFrameHelper = {
 
   events: {
     loaded: message => {
-      updateAuthCookie(message.config.authToken, window.$chatwoot.baseDomain);
-      window.$chatwoot.hasLoaded = true;
+      updateAuthCookie(message.config.authToken, window.$worqchat.baseDomain);
+      window.$worqchat.hasLoaded = true;
       const campaignsSnoozedTill = Cookies.get('cw_snooze_campaigns_till');
       IFrameHelper.sendMessage('config-set', {
-        locale: window.$chatwoot.locale,
-        position: window.$chatwoot.position,
-        hideMessageBubble: window.$chatwoot.hideMessageBubble,
-        showPopoutButton: window.$chatwoot.showPopoutButton,
-        widgetStyle: window.$chatwoot.widgetStyle,
-        darkMode: window.$chatwoot.darkMode,
-        showUnreadMessagesDialog: window.$chatwoot.showUnreadMessagesDialog,
+        locale: window.$worqchat.locale,
+        position: window.$worqchat.position,
+        hideMessageBubble: window.$worqchat.hideMessageBubble,
+        showPopoutButton: window.$worqchat.showPopoutButton,
+        widgetStyle: window.$worqchat.widgetStyle,
+        darkMode: window.$worqchat.darkMode,
+        showUnreadMessagesDialog: window.$worqchat.showUnreadMessagesDialog,
         campaignsSnoozedTill,
       });
       IFrameHelper.onLoad({
@@ -172,8 +172,8 @@ export const IFrameHelper = {
       });
       IFrameHelper.toggleCloseButton();
 
-      if (window.$chatwoot.user) {
-        IFrameHelper.sendMessage('set-user', window.$chatwoot.user);
+      if (window.$worqchat.user) {
+        IFrameHelper.sendMessage('set-user', window.$worqchat.user);
       }
 
       window.playAudioAlert = () => {};
@@ -182,7 +182,7 @@ export const IFrameHelper = {
         document.addEventListener(e, IFrameHelper.setupAudioListeners, false);
       });
 
-      if (!window.$chatwoot.resetTriggered) {
+      if (!window.$worqchat.resetTriggered) {
         dispatchWindowEvent({ eventName: CHATWOOT_READY });
       }
     },
@@ -197,15 +197,15 @@ export const IFrameHelper = {
       dispatchWindowEvent({ eventName, data });
     },
     setBubbleLabel(message) {
-      setBubbleText(window.$chatwoot.launcherTitle || message.label);
+      setBubbleText(window.$worqchat.launcherTitle || message.label);
     },
 
     setAuthCookie({ data: { widgetAuthToken } }) {
-      updateAuthCookie(widgetAuthToken, window.$chatwoot.baseDomain);
+      updateAuthCookie(widgetAuthToken, window.$worqchat.baseDomain);
     },
 
     setCampaignReadOn() {
-      updateCampaignReadStatus(window.$chatwoot.baseDomain);
+      updateCampaignReadStatus(window.$worqchat.baseDomain);
     },
 
     postback(data) {
@@ -228,7 +228,7 @@ export const IFrameHelper = {
 
     popoutChatWindow: ({ baseUrl, websiteToken, locale }) => {
       const cwCookie = Cookies.get('cw_conversation');
-      window.$chatwoot.toggle('close');
+      window.$worqchat.toggle('close');
       popoutChatWindow(baseUrl, websiteToken, locale, cwCookie);
     },
 
@@ -262,7 +262,7 @@ export const IFrameHelper = {
 
     resetUnreadMode: () => removeUnreadClass(),
     handleNotificationDot: event => {
-      if (window.$chatwoot.hideMessageBubble) {
+      if (window.$worqchat.hideMessageBubble) {
         return;
       }
 
@@ -297,13 +297,13 @@ export const IFrameHelper = {
     if (IFrameHelper.getBubbleHolder().length) {
       return;
     }
-    createBubbleHolder(window.$chatwoot.hideMessageBubble);
+    createBubbleHolder(window.$worqchat.hideMessageBubble);
     onLocationChangeListener();
 
     let className = 'woot-widget-bubble';
-    let closeBtnClassName = `woot-elements--${window.$chatwoot.position} woot-widget-bubble woot--close woot--hide`;
+    let closeBtnClassName = `woot-elements--${window.$worqchat.position} woot-widget-bubble woot--close woot--hide`;
 
-    if (isFlatWidgetStyle(window.$chatwoot.widgetStyle)) {
+    if (isFlatWidgetStyle(window.$worqchat.widgetStyle)) {
       className += ' woot-widget-bubble--flat';
       closeBtnClassName += ' woot-widget-bubble--flat';
     }

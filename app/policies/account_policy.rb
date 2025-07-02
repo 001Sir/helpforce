@@ -30,4 +30,8 @@ class AccountPolicy < ApplicationPolicy
   def toggle_deletion?
     @account_user.administrator?
   end
+
+  def admin?
+    @account_user.administrator?
+  end
 end

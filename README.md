@@ -3,9 +3,9 @@
 
 ___
 
-# Chatwoot
+# WorqChat
 
-The modern customer support platform, an open-source alternative to Intercom, Zendesk, Salesforce Service Cloud etc.
+AI-powered workplace communication platform built on Chatwoot. Transform customer support into revenue generation with intelligent routing and multi-model AI integration.
 
 <p>
   <a href="https://codeclimate.com/github/chatwoot/chatwoot/maintainability"><img src="https://api.codeclimate.com/v1/badges/e6e3f66332c91e5a4c0c/maintainability" alt="Maintainability"></a>

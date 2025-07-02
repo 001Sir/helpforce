@@ -9,7 +9,7 @@ class Notification::PushNotificationService
     notification_subscriptions.each do |subscription|
       send_browser_push(subscription)
       send_fcm_push(subscription)
-      send_push_via_chatwoot_hub(subscription)
+      send_push_via_worqchat_hub(subscription)
     end
   end
 
@@ -74,7 +74,7 @@ class Notification::PushNotificationService
   rescue Errno::ECONNRESET, Net::OpenTimeout, Net::ReadTimeout => e
     Rails.logger.error "WebPush operation error: #{e.message}"
   rescue StandardError => e
-    ChatwootExceptionTracker.new(e, account: notification.account).capture_exception
+    WorqChatExceptionTracker.new(e, account: notification.account).capture_exception
     true
   end
 
@@ -90,19 +90,19 @@ class Notification::PushNotificationService
     remove_subscription_if_error(subscription, response)
   end
 
-  def send_push_via_chatwoot_hub(subscription)
+  def send_push_via_worqchat_hub(subscription)
     return if firebase_credentials_present?
-    return unless chatwoot_hub_enabled?
+    return unless worqchat_hub_enabled?
     return unless subscription.fcm?
 
-    ChatwootHub.send_push(fcm_options(subscription))
+    WorqChatHub.send_push(fcm_options(subscription))
   end
 
   def firebase_credentials_present?
     GlobalConfigService.load('FIREBASE_PROJECT_ID', nil) && GlobalConfigService.load('FIREBASE_CREDENTIALS', nil)
   end
 
-  def chatwoot_hub_enabled?
+  def worqchat_hub_enabled?
     ActiveModel::Type::Boolean.new.cast(ENV.fetch('ENABLE_PUSH_RELAY_SERVER', true))
   end
 

@@ -169,7 +169,7 @@ export default {
 
       if (e.metaKey || e.ctrlKey) {
         window.open(
-          window.chatwootConfig.hostURL + path,
+          window.worqchatConfig.hostURL + path,
           '_blank',
           'noopener noreferrer nofollow'
         );

@@ -40,6 +40,10 @@ const settings = accountId => ({
     'settings_teams_new',
     'sla_list',
     'custom_roles_list',
+    'helpforce_marketplace',
+    'helpforce_agents',
+    'helpforce_routing',
+    'helpforce_analytics',
   ],
   menuItems: [
     {
@@ -213,6 +217,54 @@ const settings = accountId => ({
       toState: frontendURL(`accounts/${accountId}/settings/billing`),
       toStateName: 'billing_settings_index',
       showOnlyOnCloud: true,
+    },
+    {
+      icon: 'sparkles',
+      label: 'HELPFORCE',
+      hasSubMenu: true,
+      meta: {
+        permissions: ['administrator'],
+      },
+      children: [
+        {
+          icon: 'view-dashboard',
+          label: 'Dashboard',
+          toState: frontendURL(`accounts/${accountId}/settings/helpforce`),
+          toStateName: 'helpforce_dashboard',
+        },
+        {
+          icon: 'store',
+          label: 'AI Marketplace',
+          toState: frontendURL(
+            `accounts/${accountId}/settings/helpforce/marketplace`
+          ),
+          toStateName: 'helpforce_marketplace',
+        },
+        {
+          icon: 'settings-gear',
+          label: 'Agent Management',
+          toState: frontendURL(
+            `accounts/${accountId}/settings/helpforce/agents`
+          ),
+          toStateName: 'helpforce_agents',
+        },
+        {
+          icon: 'arrow-swap',
+          label: 'Smart Routing',
+          toState: frontendURL(
+            `accounts/${accountId}/settings/helpforce/routing`
+          ),
+          toStateName: 'helpforce_routing',
+        },
+        {
+          icon: 'chart-bar',
+          label: 'Analytics',
+          toState: frontendURL(
+            `accounts/${accountId}/settings/helpforce/analytics`
+          ),
+          toStateName: 'helpforce_analytics',
+        },
+      ],
     },
   ],
 });

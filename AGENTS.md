@@ -1,4 +1,4 @@
-# Chatwoot Development Guidelines
+# WorqChat Development Guidelines
 
 ## Build / Test / Lint
 

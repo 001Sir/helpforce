@@ -108,6 +108,11 @@ export function usePolicy() {
     const flag = unref(featureFlag);
     if (!flag) return false;
 
+    // Captain AI is now free - never show paywall
+    if (flag === 'captain_integration') {
+      return false;
+    }
+
     if (isACustomBrandedInstance.value) {
       // custom branded instances never show paywall
       return false;

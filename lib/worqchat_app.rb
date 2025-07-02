@@ -2,7 +2,7 @@
 
 require 'pathname'
 
-module ChatwootApp
+module WorqChatApp
   def self.root
     Pathname.new(File.expand_path('..', __dir__))
   end
@@ -17,7 +17,7 @@ module ChatwootApp
     @enterprise ||= root.join('enterprise').exist?
   end
 
-  def self.chatwoot_cloud?
+  def self.worqchat_cloud?
     enterprise? && GlobalConfig.get_value('DEPLOYMENT_ENV') == 'cloud'
   end
 

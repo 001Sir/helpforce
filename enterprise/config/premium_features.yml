@@ -1,7 +1,8 @@
 # List of the premium features in EE edition
-- disable_branding
-- audit_logs
-- response_bot
-- sla
-- captain_integration
-- custom_roles
+# All features unlocked for HelpForce development
+# - disable_branding  # Now free in HelpForce
+# - audit_logs        # Now free in HelpForce
+# - response_bot      # Deprecated
+# - sla               # Now free in HelpForce
+# - captain_integration # Now free in HelpForce
+# - custom_roles      # Now free in HelpForce

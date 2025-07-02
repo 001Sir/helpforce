@@ -1,0 +1,2 @@
+backend: bin/rails s -p 3001
+vite: bin/vite dev

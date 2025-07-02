@@ -44,7 +44,7 @@ export default {
       type: Object,
       default: () => {},
     },
-    isOnChatwootCloud: {
+    isOnWorqChatCloud: {
       type: Boolean,
       default: false,
     },
@@ -72,7 +72,7 @@ export default {
       );
       return menuItemsFilteredByPermissions.filter(item => {
         if (item.showOnlyOnCloud) {
-          return this.isOnChatwootCloud;
+          return this.isOnWorqChatCloud;
         }
         return true;
       });

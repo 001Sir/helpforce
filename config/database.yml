@@ -14,7 +14,7 @@ default: &default
 
 development:
   <<: *default
-  database: "<%= ENV.fetch('POSTGRES_DATABASE', 'chatwoot_dev') %>"
+  database: "<%= ENV.fetch('POSTGRES_DATABASE', 'worqchat_dev') %>"
   username: "<%= ENV.fetch('POSTGRES_USERNAME', 'postgres') %>"
   password: "<%= ENV.fetch('POSTGRES_PASSWORD', '') %>"
 

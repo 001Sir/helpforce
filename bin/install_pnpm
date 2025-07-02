@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Install pnpm for Heroku deployment
+
+echo "Installing pnpm..."
+npm install -g pnpm@10.2.0
+echo "pnpm installed successfully"

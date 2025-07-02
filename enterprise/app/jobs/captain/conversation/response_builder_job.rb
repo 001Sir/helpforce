@@ -122,6 +122,6 @@ class Captain::Conversation::ResponseBuilderJob < ApplicationJob
   end
 
   def log_error(error)
-    ChatwootExceptionTracker.new(error, account: account).capture_exception
+    WorqChatExceptionTracker.new(error, account: account).capture_exception
   end
 end

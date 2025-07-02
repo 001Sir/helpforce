@@ -24,7 +24,7 @@ const { t } = useI18n();
 const { accountId, currentAccount } = useAccount();
 const { isAdmin } = useAdmin();
 
-const isOnChatwootCloud = useMapGetter('globalConfig/isOnChatwootCloud');
+const isOnWorqChatCloud = useMapGetter('globalConfig/isOnWorqChatCloud');
 
 const testLimit = ({ allowed, consumed }) => {
   return consumed > allowed;
@@ -82,7 +82,7 @@ const isLimitExceeded = computed(() => {
 const shouldShowUpgradePage = computed(() => {
   // Skip upgrade page in Billing, Inbox, and Agent pages
   if (props.bypassUpgradePage) return false;
-  if (!isOnChatwootCloud.value) return false;
+  if (!isOnWorqChatCloud.value) return false;
   if (isTrialAccount.value) return false;
   return isLimitExceeded.value;
 });

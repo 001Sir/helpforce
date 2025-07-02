@@ -88,7 +88,7 @@ export default {
   mounted() {
     this.initializeColorTheme();
     this.listenToThemeChanges();
-    this.setLocale(window.chatwootConfig.selectedLocale);
+    this.setLocale(window.worqchatConfig.selectedLocale);
   },
   unmounted() {
     if (this.reconnectService) {

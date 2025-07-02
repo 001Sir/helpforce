@@ -4,7 +4,7 @@
 # display_name: the name to be used in the UI
 # enabled: whether the feature is enabled by default
 # help_url: the url to the help center article
-# chatwoot_internal: whether the feature is internal to Chatwoot and should not be shown in the UI for other self hosted installations
+# chatwoot_internal: whether the feature is internal to WorqChat and should not be shown in the UI for other self hosted installations
 # deprecated: purpose of feature flag is done, no need to show it in the UI anymore
 - name: inbound_emails
   display_name: Inbound Emails
@@ -12,11 +12,11 @@
 - name: channel_email
   display_name: Email Channel
   enabled: true
-  help_url: https://chwt.app/hc/email
+  help_url: https://docs.worqchat.com/channels/email
 - name: channel_facebook
   display_name: Facebook Channel
   enabled: true
-  help_url: https://chwt.app/hc/fb
+  help_url: https://docs.worqchat.com/fb
 - name: channel_twitter
   display_name: Twitter Channel
   enabled: true
@@ -26,19 +26,19 @@
   enabled: false
 - name: disable_branding
   display_name: Disable Branding
-  enabled: false
-  premium: true
+  enabled: true
+  premium: false
 - name: email_continuity_on_api_channel
   display_name: Email Continuity on API Channel
   enabled: false
 - name: help_center
   display_name: Help Center
   enabled: true
-  help_url: https://chwt.app/hc/help-center
+  help_url: https://docs.worqchat.com/help-center
 - name: agent_bots
   display_name: Agent Bots
   enabled: true
-  help_url: https://chwt.app/hc/agent-bots
+  help_url: https://docs.worqchat.com/agent-bots
 - name: macros
   display_name: Macros
   enabled: true
@@ -48,29 +48,29 @@
 - name: team_management
   display_name: Team Management
   enabled: true
-  help_url: https://chwt.app/hc/teams
+  help_url: https://docs.worqchat.com/teams
 - name: inbox_management
   display_name: Inbox Management
   enabled: true
 - name: labels
   display_name: Labels
   enabled: true
-  help_url: https://chwt.app/hc/labels
+  help_url: https://docs.worqchat.com/labels
 - name: custom_attributes
   display_name: Custom Attributes
   enabled: true
-  help_url: https://chwt.app/hc/custom-attributes
+  help_url: https://docs.worqchat.com/custom-attributes
 - name: automations
   display_name: Automations
   enabled: true
 - name: canned_responses
   display_name: Canned Responses
   enabled: true
-  help_url: https://chwt.app/hc/canned
+  help_url: https://docs.worqchat.com/canned
 - name: integrations
   display_name: Integrations
   enabled: true
-  help_url: https://chwt.app/hc/integrations
+  help_url: https://docs.worqchat.com/integrations
 - name: voice_recorder
   display_name: Voice Recorder
   enabled: true
@@ -84,11 +84,11 @@
 - name: campaigns
   display_name: Campaigns
   enabled: true
-  help_url: https://chwt.app/hc/campaigns
+  help_url: https://docs.worqchat.com/campaigns
 - name: reports
   display_name: Reports
   enabled: true
-  help_url: https://chwt.app/hc/reports
+  help_url: https://docs.worqchat.com/reports
 - name: crm
   display_name: CRM
   enabled: true
@@ -103,8 +103,8 @@
   enabled: false
 - name: audit_logs
   display_name: Audit Logs
-  enabled: false
-  premium: true
+  enabled: true
+  premium: false
 - name: response_bot
   display_name: Response Bot
   enabled: false
@@ -113,7 +113,7 @@
 - name: message_reply_to
   display_name: Message Reply To
   enabled: false
-  help_url: https://chwt.app/hc/reply-to
+  help_url: https://docs.worqchat.com/reply-to
   deprecated: true
 - name: insert_article_in_reply
   display_name: Insert Article in Reply
@@ -125,34 +125,34 @@
   chatwoot_internal: true
 - name: sla
   display_name: SLA
-  enabled: false
-  premium: true
-  help_url: https://chwt.app/hc/sla
+  enabled: true
+  premium: false
+  help_url: https://docs.worqchat.com/sla
 - name: help_center_embedding_search
   display_name: Help Center Embedding Search
-  enabled: false
-  premium: true
+  enabled: true
+  premium: false
   chatwoot_internal: true
 - name: linear_integration
   display_name: Linear Integration
   enabled: false
 - name: captain_integration
   display_name: Captain
-  enabled: false
-  premium: true
+  enabled: true
+  premium: false
 - name: custom_roles
   display_name: Custom Roles
-  enabled: false
-  premium: true
+  enabled: true
+  premium: false
 - name: chatwoot_v4
-  display_name: Chatwoot V4
+  display_name: WorqChat V4
   enabled: true
 - name: report_v4
   display_name: Report V4
   enabled: true
   deprecated: true
 - name: contact_chatwoot_support_team
-  display_name: Contact Chatwoot Support Team
+  display_name: Contact WorqChat Support Team
   enabled: true
   chatwoot_internal: true
 - name: shopify_integration
@@ -166,6 +166,22 @@
 - name: channel_instagram
   display_name: Instagram Channel
   enabled: true
+- name: channel_whatsapp
+  display_name: WhatsApp Channel
+  enabled: true
+  help_url: https://docs.worqchat.com/whatsapp
+- name: channel_sms
+  display_name: SMS Channel
+  enabled: true
+  help_url: https://docs.worqchat.com/sms
+- name: channel_telegram
+  display_name: Telegram Channel
+  enabled: true
+  help_url: https://docs.worqchat.com/telegram
+- name: channel_line
+  display_name: Line Channel
+  enabled: true
+  help_url: https://docs.worqchat.com/line
 - name: crm_integration
   display_name: CRM Integration
   enabled: false
@@ -176,3 +192,8 @@
 - name: notion_integration
   display_name: Notion Integration
   enabled: false
+- name: ai_auto_routing
+  display_name: AI Auto Routing
+  enabled: true
+  premium: false
+  help_url: https://docs.worqchat.com/ai-routing

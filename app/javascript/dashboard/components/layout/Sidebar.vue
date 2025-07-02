@@ -90,7 +90,7 @@ export default {
       inboxes: 'inboxes/getInboxes',
       isACustomBrandedInstance: 'globalConfig/isACustomBrandedInstance',
       isFeatureEnabledonAccount: 'accounts/isFeatureEnabledonAccount',
-      isOnChatwootCloud: 'globalConfig/isOnChatwootCloud',
+      isOnWorqChatCloud: 'globalConfig/isOnWorqChatCloud',
       labels: 'labels/getLabelsOnSidebar',
       teams: 'teams/getMyTeams',
     }),
@@ -238,7 +238,7 @@ export default {
       :custom-views="customViews"
       :menu-config="activeSecondaryMenu"
       :current-user="currentUser"
-      :is-on-chatwoot-cloud="isOnChatwootCloud"
+      :is-on-chatwoot-cloud="isOnWorqChatCloud"
       @add-label="showAddLabelPopup"
       @toggle-accounts="toggleAccountModal"
     />

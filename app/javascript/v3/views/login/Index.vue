@@ -74,10 +74,10 @@ export default {
   computed: {
     ...mapGetters({ globalConfig: 'globalConfig/get' }),
     showGoogleOAuth() {
-      return Boolean(window.chatwootConfig.googleOAuthClientId);
+      return Boolean(window.worqchatConfig.googleOAuthClientId);
     },
     showSignupLink() {
-      return parseBoolean(window.chatwootConfig.signupEnabled);
+      return parseBoolean(window.worqchatConfig.signupEnabled);
     },
   },
   created() {

@@ -274,6 +274,46 @@ Rails.application.routes.draw do
                 delete :destroy
               end
             end
+            resource :helpforce_ai, controller: 'helpforce_ai', only: [] do
+              collection do
+                get :index
+                post :configure_provider
+                post :test_provider
+                post :chat_completion
+                post :rephrase_text
+                post :analyze_sentiment
+                post :categorize_conversation
+                post :bulk_operations
+              end
+            end
+            resources :helpforce_marketplace, controller: 'helpforce_marketplace', only: [:index, :show] do
+              collection do
+                get :installed
+                get :recommendations
+                get :analytics
+              end
+              member do
+                post :install
+                delete :uninstall
+                patch :configure
+                post :test
+              end
+            end
+            
+            # HelpForce Smart Routing
+            scope :helpforce_routing, controller: 'helpforce_routing' do
+              get :analytics
+              get :needs_attention
+              get :agent_workload
+              post :bulk_route
+              
+              # Conversation-specific routing
+              get 'conversations/:conversation_id', action: :show, as: :helpforce_routing_conversation
+              post 'conversations/:conversation_id/route', action: :route
+              post 'conversations/:conversation_id/assign', action: :assign
+              post 'conversations/:conversation_id/reassign', action: :reassign
+              delete 'conversations/:conversation_id/assign', action: :unassign
+            end
           end
           resources :working_hours, only: [:update]
 
@@ -380,7 +420,7 @@ Rails.application.routes.draw do
     end
   end
 
-  if ChatwootApp.enterprise?
+  if WorqChatApp.enterprise?
     namespace :enterprise, defaults: { format: 'json' } do
       namespace :api do
         namespace :v1 do

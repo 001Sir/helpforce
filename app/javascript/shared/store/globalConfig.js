@@ -4,7 +4,7 @@ const {
   APP_VERSION: appVersion,
   AZURE_APP_ID: azureAppId,
   BRAND_NAME: brandName,
-  CHATWOOT_INBOX_TOKEN: chatwootInboxToken,
+  WORQCHAT_INBOX_TOKEN: worqchatInboxToken,
   CREATE_NEW_ACCOUNT_FROM_DASHBOARD: createNewAccountFromDashboard,
   DIRECT_UPLOADS_ENABLED: directUploadsEnabled,
   DISPLAY_MANIFEST: displayManifest,
@@ -27,7 +27,7 @@ const state = {
   appVersion,
   azureAppId,
   brandName,
-  chatwootInboxToken,
+  worqchatInboxToken,
   deploymentEnv,
   createNewAccountFromDashboard,
   directUploadsEnabled: directUploadsEnabled === 'true',
@@ -46,9 +46,9 @@ const state = {
 
 export const getters = {
   get: $state => $state,
-  isOnChatwootCloud: $state => $state.deploymentEnv === 'cloud',
-  isACustomBrandedInstance: $state => $state.installationName !== 'Chatwoot',
-  isAChatwootInstance: $state => $state.installationName === 'Chatwoot',
+  isOnWorqChatCloud: $state => $state.deploymentEnv === 'cloud',
+  isACustomBrandedInstance: $state => $state.installationName !== 'WorqChat',
+  isAWorqChatInstance: $state => $state.installationName === 'WorqChat',
 };
 
 export const actions = {};

@@ -27,7 +27,7 @@ const emailProviderList = computed(() => {
     },
     {
       title: t('INBOX_MGMT.EMAIL_PROVIDERS.GOOGLE'),
-      isEnabled: !!window.chatwootConfig.googleOAuthClientId,
+      isEnabled: !!window.worqchatConfig.googleOAuthClientId,
       key: 'google',
       src: '/assets/images/dashboard/channels/google.png',
     },

@@ -19,6 +19,7 @@
 ########
 
 require 'active_support/inflector'
+require_relative '../../lib/worqchat_app'
 
 module InjectEnterpriseEditionModule
   def prepend_mod_with(constant_name, namespace: Object, with_descendants: false)
@@ -68,7 +69,7 @@ module InjectEnterpriseEditionModule
   end
 
   def each_extension_for(constant_name, namespace)
-    ChatwootApp.extensions.each do |extension_name|
+    WorqChatApp.extensions.each do |extension_name|
       extension_namespace =
         const_get_maybe_false(namespace, extension_name.camelize)
 

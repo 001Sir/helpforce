@@ -15,10 +15,10 @@ export default {
   emits: ['channelItemClick'],
   computed: {
     hasFbConfigured() {
-      return window.chatwootConfig?.fbAppId;
+      return window.worqchatConfig?.fbAppId;
     },
     hasInstagramConfigured() {
-      return window.chatwootConfig?.instagramAppId;
+      return window.worqchatConfig?.instagramAppId;
     },
     isActive() {
       const { key } = this.channel;

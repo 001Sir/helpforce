@@ -10,14 +10,14 @@ function getWrapper(showSeparator) {
 
 describe('GoogleOAuthButton.vue', () => {
   beforeEach(() => {
-    window.chatwootConfig = {
+    window.worqchatConfig = {
       googleOAuthClientId: 'clientId',
       googleOAuthCallbackUrl: 'http://localhost:3000/test-callback',
     };
   });
 
   afterEach(() => {
-    window.chatwootConfig = {};
+    window.worqchatConfig = {};
   });
 
   it('renders the OR separator if showSeparator is true', () => {

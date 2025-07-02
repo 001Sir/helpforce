@@ -68,9 +68,9 @@ export default {
     ...mapGetters({ globalConfig: 'globalConfig/get' }),
     termsLink() {
       return this.$t('REGISTER.TERMS_ACCEPT')
-        .replace('https://www.chatwoot.com/terms', this.globalConfig.termsURL)
+        .replace('https://www.worqchat.com/terms', this.globalConfig.termsURL)
         .replace(
-          'https://www.chatwoot.com/privacy-policy',
+          'https://www.worqchat.com/privacy-policy',
           this.globalConfig.privacyURL
         );
     },
@@ -94,7 +94,7 @@ export default {
       return '';
     },
     showGoogleOAuth() {
-      return Boolean(window.chatwootConfig.googleOAuthClientId);
+      return Boolean(window.worqchatConfig.googleOAuthClientId);
     },
     isFormValid() {
       return !this.v$.$invalid && this.hasAValidCaptcha;

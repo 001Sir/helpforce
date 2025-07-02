@@ -9,7 +9,8 @@ export function useCaptain() {
   const { isCloudFeatureEnabled, currentAccount } = useAccount();
 
   const captainEnabled = computed(() => {
-    return isCloudFeatureEnabled(FEATURE_FLAGS.CAPTAIN);
+    // Captain AI is now free - always enabled
+    return true;
   });
 
   const captainLimits = computed(() => {
