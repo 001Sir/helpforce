@@ -33,6 +33,29 @@ if ENV.fetch('JUDOSCALE_URL', false).present?
   require 'judoscale-sidekiq'
 end
 
+# Disable enterprise features for Heroku deployment
+# This must be defined BEFORE Module.prepend is called in initializers
+# So we'll patch it directly in the Module class early
+if ENV['DISABLE_ENTERPRISE'] == 'true' || ENV['RAILS_ENV'] == 'production'
+  class Module
+    def prepend_mod_with(constant_name, namespace: Object, with_descendants: false)
+      # Skip all enterprise module loading
+      Rails.logger.info "Skipping enterprise module: #{constant_name}" if Rails.logger
+      return
+    end
+
+    def extend_mod_with(constant_name, namespace: Object)
+      Rails.logger.info "Skipping enterprise module extend: #{constant_name}" if Rails.logger
+      return
+    end
+
+    def include_mod_with(constant_name, namespace: Object)
+      Rails.logger.info "Skipping enterprise module include: #{constant_name}" if Rails.logger
+      return
+    end
+  end
+end
+
 module WorqChat
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
