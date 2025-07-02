@@ -323,6 +323,9 @@ importers:
       prosemirror-model:
         specifier: ^1.22.3
         version: 1.22.3
+      sass:
+        specifier: ^1.79.3
+        version: 1.79.3
       size-limit:
         specifier: ^8.2.4
         version: 8.2.6
@@ -7410,7 +7413,6 @@ snapshots:
   chokidar@4.0.3:
     dependencies:
       readdirp: 4.1.2
-    optional: true
 
   cli-boxes@3.0.0: {}
 
@@ -8503,8 +8505,7 @@ snapshots:
 
   ignore@6.0.2: {}
 
-  immutable@4.3.7:
-    optional: true
+  immutable@4.3.7: {}
 
   import-fresh@3.3.0:
     dependencies:
@@ -9714,8 +9715,7 @@ snapshots:
     dependencies:
       picomatch: 2.3.1
 
-  readdirp@4.1.2:
-    optional: true
+  readdirp@4.1.2: {}
 
   recordrtc@5.6.2: {}
 
@@ -9847,7 +9847,6 @@ snapshots:
       chokidar: 4.0.3
       immutable: 4.3.7
       source-map-js: 1.2.1
-    optional: true
 
   saxes@6.0.0:
     dependencies:
