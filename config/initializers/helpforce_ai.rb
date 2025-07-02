@@ -1,6 +1,8 @@
 # HelpForce AI Multi-Model Support Initializer
 
-Rails.application.config.after_initialize do
+# Skip initialization during asset precompilation
+unless ENV['RAILS_GROUPS'] == 'assets' || ENV['DATABASE_URL'].nil?
+  Rails.application.config.after_initialize do
   # Load HelpForce AI modules
   require_relative '../../lib/helpforce/ai/base_provider'
   require_relative '../../lib/helpforce/ai/provider_factory'
@@ -29,6 +31,7 @@ Rails.application.config.after_initialize do
   rescue => e
     Rails.logger.error("❌ Failed to initialize HelpForce AI: #{e.message}")
     Rails.logger.error(e.backtrace.first(5).join("\n"))
+  end
   end
 end
 

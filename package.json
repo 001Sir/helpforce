@@ -4,7 +4,8 @@
   "license": "MIT",
   "engines": {
     "node": "20.x",
-    "npm": "10.x"
+    "npm": "10.x",
+    "yarn": "1.x"
   },
   "scripts": {
     "eslint": "eslint app/**/*.{js,vue}",
