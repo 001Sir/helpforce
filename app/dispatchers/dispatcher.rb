@@ -11,6 +11,16 @@ class Dispatcher
   def initialize
     @sync_dispatcher = SyncDispatcher.new
     @async_dispatcher = AsyncDispatcher.new
+  rescue LoadError => e
+    Rails.logger.error "Failed to initialize dispatcher: #{e.message}"
+    # Fallback to basic functionality
+    @sync_dispatcher = BaseDispatcher.new
+    @async_dispatcher = BaseDispatcher.new
+  rescue NameError => e
+    Rails.logger.error "Dispatcher class not found: #{e.message}"
+    # Fallback to basic functionality
+    @sync_dispatcher = BaseDispatcher.new
+    @async_dispatcher = BaseDispatcher.new
   end
 
   def dispatch(event_name, timestamp, data, _async = false)
